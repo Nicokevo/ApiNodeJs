@@ -1,6 +1,7 @@
 import express from "express";
 import { SERVER_PORT, MODE } from "./config/config.js";
-import bookRoutes from "./routes/BookRoutes.js";
+import bookRoutes from './routes/BooksRoutes.js';
+
 
 const app = express();
 
