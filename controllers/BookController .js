@@ -1,14 +1,6 @@
-import BookService from '../services/BookService.js';
-
 class BookController {
   constructor(bookService) {
     this.bookService = bookService;
-    this.createBook = this.createBook.bind(this);
-    this.deleteBook = this.deleteBook.bind(this);
-    this.rentBook = this.rentBook.bind(this);
-    this.returnBook = this.returnBook.bind(this);
-    this.markBookAsUnsuitable = this.markBookAsUnsuitable.bind(this);
-    this.getAllBooks = this.getAllBooks.bind(this);
   }
 
   async createBook(req, res, next) {
@@ -65,6 +57,26 @@ class BookController {
     try {
       const allBooks = await this.bookService.getAllBooks();
       res.status(200).json(allBooks);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async listBooksByStatus(req, res, next) {
+    try {
+      const { estado } = req.params;
+      const booksByStatus = await this.bookService.getBooksByStatus(estado);
+      res.status(200).json(booksByStatus);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async checkPrizeOnRent(req, res, next) {
+    try {
+      const { code } = req.params;
+      const prize = await this.bookService.checkPrizeOnRent(code);
+      res.status(200).json({ prize });
     } catch (error) {
       next(error);
     }
