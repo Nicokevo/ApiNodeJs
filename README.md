@@ -1,6 +1,3 @@
-¡Claro! A continuación, te presento una propuesta de documentación para el repositorio [Nicokevo/ApiNodeJs](https://github.com/Nicokevo/ApiNodeJs). Esta documentación está diseñada para ser clara y profesional, siguiendo las mejores prácticas para proyectos Node.js con Express.
-
----
 
 # API Node.js - Express
 
